@@ -11,14 +11,14 @@ export default async () => {
   const name = 'importNamedPolls';
   const cron = await getCron({ name });
   // Last SuccessStartDate
-  const since = new Date(cron.lastSuccessStartDate); // new Date('2019-01-16T09:59:20.123Z');
+  const since = new Date(cron.lastSuccessStartDate);
   // New SuccessStartDate
   const startDate = new Date();
 
   // Query Bundestag.io
   try {
     const client = createClient();
-    const limit = 50;
+    const limit = 25;
     let offset = 0;
     const associated = true;
     let done = false;
@@ -85,7 +85,7 @@ export default async () => {
         if (deputy) {
           // remove duplicates
           const votes = unionBy(updates[deputyWebId], deputy.votes, 'procedureId');
-
+          // Insert
           await DeputyModel.updateOne({ webId: deputyWebId }, { $set: { votes } });
         }
       });
