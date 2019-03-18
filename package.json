@@ -47,7 +47,7 @@
     "mongoose-explain": "^0.2.2",
     "ms": "^2.1.1",
     "node-fetch": "^2.0.0",
-    "node-gcm": "^0.14.10",
+    "node-gcm": "^1.0.2",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "prettier-eslint": "^8.2.0",
